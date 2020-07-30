@@ -99,6 +99,7 @@ public class Controlador : MonoBehaviour
         }
     }
 
+    //este metodo activa el atributo onclick del componente Button de cada pieza
     void ActivarBotones()
     {
         foreach (Button boton in botones)
@@ -107,24 +108,27 @@ public class Controlador : MonoBehaviour
         }
     }
 
+    /*Cada vez que se selecciona una pieza se ejecuta este metodo. Como el jugador tiene que seleccionar dos piezas
+    tiene dos intentos. En cada intento se registra el nombre y el indice de la pieza para mostrar el monumento que
+    le corresponde y para luego verificar si encontro un par*/
     public void SeleccionarPieza()
     {
         string nombre = EventSystem.current.currentSelectedGameObject.name;
 
         if (!primerIntento)
         {
-            primerIntento = true;
+            primerIntento = true; //se asigna true para que cuando haga el segundo intento no ingrese a este if
             indicePrimerIntento = int.Parse(nombre);
             botones[indicePrimerIntento].image.sprite = monumentos[indicePrimerIntento];
             monumentoPrimerIntento = monumentos[indicePrimerIntento].name;
         }
-        else if (!segunIntento && (int.Parse(nombre) != indicePrimerIntento))
+        else if (!segunIntento && (int.Parse(nombre) != indicePrimerIntento))//entra a este if si es mi segundo intento y si la pieza seleccinada ahora no es la misma del primer intento
         {
-            segunIntento = true;
+            segunIntento = true;//se asigna true para que no ingrese en ningun if y pase a evaluar el par de piezas seleccionadas
             indiceSegunIntento = int.Parse(nombre);
             botones[indiceSegunIntento].image.sprite = monumentos[indiceSegunIntento];
             monumentoSegunIntento = monumentos[indiceSegunIntento].name;
-            //cont_intentos++; si se quiere contar los intentos hay que agregar esta variable como atributo
+            //cont_intentos++; si se quiere contar los intentos hay que agregar esta variable como atributo en la clase Controlador
             StartCoroutine(VerificarIntento());
         }
     }
