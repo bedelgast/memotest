@@ -60,12 +60,12 @@ public class Controlador : MonoBehaviour
     9 de las 12 fotos disponibles y asi variar los monumentos mostrados en cada partido*/
     List<int> SeleccionarMonumentos()
     {
-        List<int> aux = new List<int>();
+        List<int> aux = new List<int>();//crea lista auxiliar que tendra los indices de las fotos a utilizar
         for (int i = 0; i < cant_piezas/2; i++)
         {
-            int num = Random.Range(0, fotos.Length);
+            int num = Random.Range(0, fotos.Length);//busca un numero aleatorio entre cero y la cantidad de fotos que se cargaron al inicio
             bool band = true;
-            while (band)
+            while (band)//va iterar tantas veces sea necesario hasta que se encuentre un numero aleatorio que no exista en la lista
             {
                 if (aux.Contains(num))
                 {
