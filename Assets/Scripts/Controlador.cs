@@ -133,20 +133,24 @@ public class Controlador : MonoBehaviour
         }
     }
 
+    //Este metodo verifica si las dos piezas seleccionadas son las mismas
     IEnumerator VerificarIntento()
     {
         yield return new WaitForSeconds(1f);
         if (monumentoPrimerIntento == monumentoSegunIntento)
         {
+            //en caso positivo se desactivan las piezas para que el jugador no pueda seleccionarlas nuevamente
             botones[indicePrimerIntento].enabled = false;
             botones[indiceSegunIntento].enabled = false;
             VerificarFin();
         }
         else
         {
+            //en caso negativo se vuelve asignar la foto del dorso de la pieza para que el jugador haga otro intento
             botones[indicePrimerIntento].image.sprite = dorso;
             botones[indiceSegunIntento].image.sprite = dorso;
         }
+        //se asigna falso para que se habilite al jugador seleccionar piezas para un nuevo intento
         primerIntento = false;
         segunIntento = false;
     }
