@@ -155,6 +155,9 @@ public class Controlador : MonoBehaviour
         segunIntento = false;
     }
 
+    /*Este metodo se encarga de terminar el juego. Cada ves que el jugador haga un intento correcto se acumula la
+    variable de intentos. Cuando su valor sea igual al de intentos del juego significa que el jugador encontró todas
+    las piezas del juego y este se termina*/
     void VerificarFin()
     {
         intentos_correctos++;
