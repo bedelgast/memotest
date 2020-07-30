@@ -167,6 +167,7 @@ public class Controlador : MonoBehaviour
         }
     }
 
+    //despues de definir todo se prodece a mezclar las piezas par que no queden en un patron facil de encontrar sus pares
     void MezclarPiezas(List<Sprite> lista)
     {
         for (int i = 0; i < lista.Count; i++)
@@ -178,6 +179,7 @@ public class Controlador : MonoBehaviour
         }
     }
 
+    //metodo que se encarga de ir a la escena de fin de juego
     void GameOver()
     {
         SceneManager.LoadScene("final");
