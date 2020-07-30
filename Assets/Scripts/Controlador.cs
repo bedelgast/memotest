@@ -78,10 +78,13 @@ public class Controlador : MonoBehaviour
                 }
             }
         }
-        return aux;
+        return aux;//la salida de este metodo es una lista CON LOS INDICES de las fotos a ser utilizadas en ese partido
     }
 
-    
+    /*Este metodo se encarga de agregar las fotos seleccionadas en las piezas del juego. Es aca donde una foto del
+    archivo se convierte en un monumento, por lo cual recibe como parametro la lista de las fotos seleccionadas para
+    ese partido. La variable "control" lo que hace es volver a la primer posicion de la lista de indices para agregar
+    el par de cada foto para el juego de la memoria.*/
     void AgregarMonumentos(List<int> indices)
     {
         int control = 0;
@@ -91,7 +94,7 @@ public class Controlador : MonoBehaviour
             {
                 control = 0;
             }
-            monumentos.Add(fotos[indices[control]]);
+            monumentos.Add(fotos[indices[control]]);//agrega las fotos que ahora pasan a llamarse "monumentos"
             control++;
         }
     }
