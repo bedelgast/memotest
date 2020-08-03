@@ -98,6 +98,23 @@ public class Controlador : MonoBehaviour
             control++;
         }
     }
+    /*Los metodos anteriores (SeleccionarMonumentos y AgregarMonumentos) se utilizan para la version movil o para cuando
+    se aplique el requerimiento especificado. En caso de que no sea necesario aplicarlos se debe eliminar SeleccionarMonumentos
+    y remplazar AgregarMonumentos por:
+    
+    void AgregarMonumentos()
+    {
+        int control = 0;
+        for (int i = 0; i < cant_piezas; i++)
+        {
+            if (control == cant_piezas/2)
+            {
+                control = 0;
+            }
+            monumentos.Add(fotos[control]);
+            control++;
+        }
+    }*/
 
     //este metodo activa el atributo onclick del componente Button de cada pieza
     void ActivarBotones()
